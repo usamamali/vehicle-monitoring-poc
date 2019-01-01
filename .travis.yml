@@ -1,0 +1,10 @@
+language: java
+jdk: oraclejdk8
+install: true
+script:
+  - cd customer-api
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - cd ../vehicle-api
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
