@@ -66,11 +66,12 @@ public class CustomerVehicleService {
 
 		if (customer.isPresent()) {
 			// get customer
-			customerClient.find(customer.get().getId()).map(cust -> {
-				customer.get().setName(cust.getName());
-				customer.get().setAddress(cust.getAddress());
-				return cust;
-			}).orElse(null);
+			Optional<Customer> remoteCustomer = customerClient
+					.find(customer.get().getId());
+			if (remoteCustomer.isPresent()) {
+				customer.get().setName(remoteCustomer.get().getName());
+				customer.get().setAddress(remoteCustomer.get().getAddress());
+			}
 
 			// get vehicles
 			customer.get().getVehicles().stream().forEach(
