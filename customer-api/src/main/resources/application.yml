@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: customer-api
+    
+server:
+  port: 9092
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka
+
+

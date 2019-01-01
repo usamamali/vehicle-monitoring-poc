@@ -1,0 +1,26 @@
+zuul:
+  routes:
+    vehicle:
+      url: http://vehicle-api
+      path: /api/vehicle/**
+    customer:
+      url: http://customer-api
+      path: /api/customer/**
+    status:
+      url: http://vehicle-status-management
+      path: /api/customer/**
+    cutomer-vehicles:
+      url: http://customer-vehicle-management-api
+      path: /api/customer/**
+
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka

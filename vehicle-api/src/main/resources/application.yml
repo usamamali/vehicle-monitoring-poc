@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: vehicle-api
+    
+server:
+  port: 9091
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<div class="al-content">
+
+  <div class="section-head">
+    <h1 class="title">Customers</h1>
+  </div>
+
+  <div class="section-body">
+    <!-- search -->
+    <div class="card mb-3">
+      <div class="card-header bg-transparent">Search</div>
+      <div class="card-body">
+        <form class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="customerSearchText">Customer Name</label>
+              <input type="text" [(ngModel)]="searchCustomer.name" class="form-control" placeholder="Customer Name" id="customerSearchText"
+                name="customerSearchText">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="statusList">Status </label>
+              <select [(ngModel)]="searchVehicle.status" name="statusList" id="statusList" class="form-control">
+                <option [(ngValue)]="status" *ngFor="let status of vehicleStatus">
+                  {{status}}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Customer panel -->
+    <div *ngFor="let customer of customers | customerfilter:searchCustomer">
+      <div *ngIf="customer.vehicles.length>0">
+        <div class="card border-info mb-3">
+
+          <div class="card-header bg-success">
+            <div class="row" style="margin-top: auto; margin-bottom: auto;">
+              <div class="col-sm-1" style="margin-top: auto; margin-bottom: auto;"><i class="fas fa-user fa-4x"></i>
+              </div>
+              <div class="col-sm-10" style="margin-right: auto;">
+                <h5>{{customer.name}}</h5>
+                <div class="card-text">{{customer.address}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row card-body">
+            <div *ngFor="let vehicle of customer.vehicles | vehiclefilter:searchVehicle" class="">
+              <div class="card animated zoomIn mb-3 ml-3">
+                <div class="card-body" ng-transclude>
+
+                  <div class="chart">
+                    <span style="height: 84px; width: 84px;"></span>
+                    <i class="fas fa-car fa-2x" [class.connected]="vehicle.status === 'Connected'" [class.disconnected]="vehicle.status === 'Disconnected'"></i>
+                  </div>
+                  <div class="details">
+                    <div class="details-stats">RN: {{vehicle.registrationNumber}}</div>
+                    <div class="details-stats">ID: {{vehicle.id}}</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

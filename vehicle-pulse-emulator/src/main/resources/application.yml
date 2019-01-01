@@ -1,0 +1,11 @@
+server:
+  port: 8060
+
+spring:
+  application:
+    name: vehicle-pulse-emulator
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka

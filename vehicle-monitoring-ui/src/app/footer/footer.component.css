@@ -1,0 +1,34 @@
+/* AppComponent's private CSS styles */
+
+a.al-logo {
+  color: #fff;
+  display: block;
+  font-size: 24px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  float: left;
+  line-height: 60px;
+}
+
+a,
+a.al-logo {
+  outline: 0 !important;
+}
+
+a {
+  color: #209e91;
+  -webkit-transition: color .2s ease;
+  transition: color .2s ease;
+  text-decoration: none !important;
+}
+
+.page-footer {
+  background-color: #1C2B36;
+  z-index: 904;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, .5);
+  height: 30px;
+  width: 100%;
+  min-width: 320px;
+  padding: 0 32px 0 40px;
+}

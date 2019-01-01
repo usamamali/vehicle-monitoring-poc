@@ -1,0 +1,11 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: vehicle-status-management
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka
