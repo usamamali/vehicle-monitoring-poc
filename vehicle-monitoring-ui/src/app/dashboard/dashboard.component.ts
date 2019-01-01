@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   searchCustomer: Customer = new Customer();
   searchVehicle: Vehicle = new Vehicle();
 
-  vehicleStatus = ['All', 'Connected', 'Disconnected'];
+  vehicleStatus = ['All', 'CONNECTED', 'DISCONNECTED'];
 
   constructor(private customerService: CustomerVehiclesService) {
     // this.getCustomers();

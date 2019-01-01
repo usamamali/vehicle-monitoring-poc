@@ -35,9 +35,9 @@ public class VehicleStatusManagementService {
 						if (vehicle.getLastPulseTime() != null
 								&& vehicle.getLastPulseTime()
 										.isAfter(now().minusMinutes(1)))
-							vehicle.setStatus(Status.Connected);
+							vehicle.setStatus(Status.CONNECTED);
 						else
-							vehicle.setStatus(Status.Disconnected);
+							vehicle.setStatus(Status.DISCONNECTED);
 					});
 		}
 

@@ -9,5 +9,5 @@ package com.alten.vehicle.monitoring.model;
  */
 public enum Status {
 
-		  Connected, Disconnected
+	CONNECTED, DISCONNECTED
 }

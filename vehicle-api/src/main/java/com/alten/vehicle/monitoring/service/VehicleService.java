@@ -52,7 +52,7 @@ public class VehicleService {
 		}
 
 		return ofNullable(vehicleRepository.findById(vehicleId).map(vehicle -> {
-			vehicle.setStatus(Status.Connected);
+			vehicle.setStatus(Status.CONNECTED);
 			vehicle.setLastPulseTime(now());
 			vehicleRepository.save(vehicle);
 			return vehicle;
