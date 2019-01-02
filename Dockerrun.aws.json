@@ -1,0 +1,155 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [{
+            "name": "ui",
+            "host": {
+                "sourcePath": "/var/app/current/vehicle-monitoring-ui"
+            }
+        },
+        {
+            "name": "proxy",
+            "host": {
+                "sourcePath": "/var/app/current/etc/nginx"
+            }
+        },
+        {
+            "name": "app",
+            "host": {
+                "sourcePath": "/opt/app"
+            }
+        }
+    ],
+    "containerDefinitions": [{
+            "name": "discovery-service",
+            "image": "usamamali/vehicle-discovery-service",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 8761,
+                "containerPort": 8761
+            }],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "vehicle-api",
+            "image": "usamamali/vehicle-api",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 9091,
+                "containerPort": 9091
+            }],
+            "links": [
+                "discovery-service"
+            ],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "customer-api",
+            "image": "usamamali/customer-api",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 9092,
+                "containerPort": 9092
+            }],
+            "links": [
+                "discovery-service"
+            ],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "customer-vehicle-management-api",
+            "image": "usamamali/customer-vehicle-management-api",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 9093,
+                "containerPort": 9093
+            }],
+            "links": ["customer-api", "vehicle-api",
+                "discovery-service"
+            ],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "vehicle-pulse-emulator",
+            "image": "usamamali/vehicle-pulse-emulator",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 8060,
+                "containerPort": 8060
+            }],
+            "links": ["vehicle-api", "discovery-service"],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "vehicle-status-management",
+            "image": "usamamali/vehicle-status-management",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 8050,
+                "containerPort": 8050
+            }],
+            "links": ["customer-vehicle-management-api", "discovery-service"],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "api-gateway",
+            "image": "usamamali/vehicle-monitor-api-gateway",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 8080,
+                "containerPort": 8080
+            }],
+            "links": ["customer-api", "vehicle-api", "customer-vehicle-management-api", "vehicle-status-management", "discovery-service"],
+            "mountPoints": [{
+                "sourceVolume": "app",
+                "containerPath": "/opt/app"
+            }]
+        },
+        {
+            "name": "vehicle-monitor-ui",
+            "image": "usamamali/vehicle-monitor-ui",
+            "essential": true,
+            "memory": 512,
+            "portMappings": [{
+                "hostPort": 80,
+                "containerPort": 80
+            }],
+            "links": [
+                "api-gateway"
+            ],
+            "mountPoints": [{
+                    "sourceVolume": "ui",
+                    "containerPath": "vehicle-monitoring-ui"
+                },
+                {
+                    "sourceVolume": "proxy",
+                    "containerPath": "/etc/nginx"
+                }
+            ]
+        }
+    ]
+}
