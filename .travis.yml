@@ -44,6 +44,7 @@ script:
   - cd ..
 
 after_success:
+  - docker ps
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker tag vehicle_api $DOCKER_USERNAME/vehicle_api:$TRAVIS_BUILD_ID;
   - docker push $DOCKER_USERNAME/vehicle_api:$TRAVIS_BUILD_ID;
