@@ -25,11 +25,11 @@ after_success:
   # Stop containers and build our image
   - docker-compose build --no-cache
   # Push image to Docker Hub and update EB environment
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  # - if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker tag vehicle_api $DOCKER_USERNAME/$vehicle_api:$TRAVIS_BUILD_ID;
     docker push $DOCKER_USERNAME/vehicle_api:$TRAVIS_BUILD_ID;
     #./scripts/upload_image_to_elastcbeanstalk.sh $TRAVIS_BUILD_ID $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION $IMAGE_NAME $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME $DOCKER_REPOSITORY $DOCKER_PASSWORD $DOCKER_EMAIL;
-    fi
+   # fi
 
 notifications:
   email: false
