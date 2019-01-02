@@ -15,30 +15,35 @@ script:
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ../vehicle-api
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ../vehicle-status-management
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ../customer-vehicle-management-api
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ../vehicle-discovery-service
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ../vehicle-monitor-api-gateway
   #- mvn test -Deureka.client.enabled=false  -B
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
+  - docker build .
   - cd ..
 
 after_success:
-  - docker-compose build --no-cache
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker tag vehicle_api $DOCKER_USERNAME/vehicle_api:$TRAVIS_BUILD_ID;
   - docker push $DOCKER_USERNAME/vehicle_api:$TRAVIS_BUILD_ID;
