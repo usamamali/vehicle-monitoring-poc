@@ -1,29 +1,11 @@
 sudo: required
 language: java
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
 install: true
 
 services:
   - docker
-
-before_install:
-  # Install dependencies
-  - sudo pip install --user virtualenv
-  # Create a virtual environment for AWS CLI
-  - pip install --upgrade awscli
-  - pip install --upgrade awsebcli
-  # Set AWS information
-  - aws configure set aws_access_key_id $AWS_ACCESS_KEY
-  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
-  - aws configure set default.region $DEPLOYMENT_REGION
-  - aws configure set metadata_service_timeout 1200
-  - aws configure set metadata_service_num_attempts 3
-  - aws configure list
-  # Copy the docker-compose.production.yml file to docker-compose.yml file
-  - cp docker-compose.prod.yml docker-compose.yml
-  # Build and create our containers
-  #- docker-compose up -d
-  #- docker ps -a
 
 script:
   - cd customer-api
