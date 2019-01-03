@@ -16,7 +16,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY package.json /usr/src/app/package.json
-RUN sudo chown -R $USER /usr/src/node_modules/ and sudo chgrp -R $USER /usr/src/node_modules/
+RUN sudo chown -R $(whoami) /usr/src/node_modules/ and sudo chgrp -R $(whoami) /usr/src/node_modules/
 RUN sudo npm install
 RUN sudo npm install -g @angular/cli@1.7.1
 
