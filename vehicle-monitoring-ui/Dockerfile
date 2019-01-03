@@ -22,6 +22,7 @@ COPY package.json /usr/src/app/package.json
 #RUN sudo chgrp -R $(whoami) /usr/src/node_modules/
 RUN sudo npm install
 RUN sudo chown -R $(whoami) /usr/local/lib/
+RUN sudo chgrp -R $(whoami) /usr/local/lib/
 RUN sudo npm install -g @angular/cli@1.7.1
 RUN sudo chown -R $(whoami) /usr/src/node_modules/
 RUN sudo chgrp -R $(whoami) /usr/src/node_modules/
