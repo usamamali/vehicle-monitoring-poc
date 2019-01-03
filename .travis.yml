@@ -55,6 +55,6 @@ after_success:
   - docker images
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   #- docker tag vehicle_api $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID;
-  - docker push $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID;
+  - docker-compose push
 notifications:
   email: false
