@@ -28,7 +28,7 @@ before_install:
   - aws configure list
 
 script:
-  - cd vehicle-monitoring-ui
+  - cd .
 
 deploy:
   provider: elasticbeanstalk
@@ -39,7 +39,7 @@ deploy:
   app: $APP_NAME
   env: $DEPLOYMENT_ENV
   on:
-    repo: $DOCKER_USERNAME/vehicle-monitoring-ui
+    repo: usamamali/vehicle-monitoring-ui
 
 notifications:
   email: false
