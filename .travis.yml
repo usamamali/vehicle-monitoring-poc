@@ -30,6 +30,7 @@ before_install:
 script:
   - cd vehicle-monitoring-ui
   - docker build -t $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:latest
   - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID
   ##############################
   - cd ../customer-api

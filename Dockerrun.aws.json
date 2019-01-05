@@ -130,7 +130,7 @@
             }]
         },
         {
-            "name": "vehicle-monitor-ui",
+            "name": "vehicle-monitoring-ui",
             "image": "usamamali/vehicle-monitoring-ui",
             "essential": true,
             "memory": 512,
