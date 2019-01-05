@@ -60,7 +60,6 @@ script:
   - cd ..
 
 after_success:
-  - docker images
-  #- docker tag vehicle_api $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID;
+  - ./scripts/upload_image_to_elastcbeanstalk.sh $TRAVIS_BUILD_ID $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION $IMAGE_NAME $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME $DOCKER_REPOSITORY $DOCKER_PASSWORD $DOCKER_EMAIL;
 notifications:
   email: false
