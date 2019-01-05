@@ -76,6 +76,6 @@ script:
   - cd ..
 
 after_success:
-  - sh ./scripts/upload_image_to_elastcbeanstalk.sh $TRAVIS_BUILD_ID $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION $IMAGE_NAME $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME usamamali/vehicle-monitor-ui $DOCKER_PASSWORD $DOCKER_EMAIL
+  - sh ./scripts/upload_image_to_elastcbeanstalk.sh $TRAVIS_BUILD_ID $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION $IMAGE_NAME $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME vehicle-monitor-ui $DOCKER_PASSWORD $DOCKER_EMAIL
 notifications:
   email: false
