@@ -30,8 +30,8 @@ before_install:
 script:
   - cd vehicle-monitoring-ui
   - docker build -t $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID .
-  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui
   - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui
   ##############################
   - cd ../customer-api
   #- mvn test -Deureka.client.enabled=false  -B
