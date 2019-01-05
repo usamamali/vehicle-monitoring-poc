@@ -131,7 +131,7 @@
         },
         {
             "name": "vehicle-monitor-ui",
-            "image": "usamamali/vehicle-monitor-ui",
+            "image": "usamamali/vehicle-monitoring-ui",
             "essential": true,
             "memory": 512,
             "portMappings": [{
