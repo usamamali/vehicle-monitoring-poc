@@ -26,10 +26,12 @@ RUN sudo chown -R $(whoami) /usr/local/lib/
 RUN sudo chgrp -R $(whoami) /usr/local/lib/
 RUN sudo npm install -g @angular/cli@1.7.1 --unsafe-perm=true --allow-root
 
+# build app
+CMD ng build --prod --build-optimizer
+
 # add app
 COPY . /usr/src/app
-# start app
-CMD ng build --prod --build-optimizer
+
 RUN ls /usr/src/app
 RUN ls /usr/src/app/dist
 
