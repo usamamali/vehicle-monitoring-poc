@@ -75,7 +75,16 @@ script:
   - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
   - cd ..
 
-after_success:
-  - sh ./scripts/upload_image_to_elastcbeanstalk.sh $TRAVIS_BUILD_ID $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION $IMAGE_NAME $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME vehicle-monitor-ui $DOCKER_PASSWORD $DOCKER_EMAIL
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: $DEPLOYMENT_REGION
+  bucket_name: $DEPLOYMENT_BUCKET
+  app: $APP_NAME
+  env: $DEPLOYMENT_ENV
+  on:
+    repo: $DOCKER_USERNAME/vehicle-monitoring-ui
+
 notifications:
   email: false
