@@ -28,6 +28,7 @@ RUN sudo npm install -g @angular/cli@1.7.1 --unsafe-perm=true --allow-root
 
 # add app
 COPY . /usr/src/app
+RUN cd /usr/src/app
 
 # build app
 CMD ng build --prod
