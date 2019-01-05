@@ -39,7 +39,7 @@ deploy:
   app: $APP_NAME
   env: $DEPLOYMENT_ENV
   on:
-    repo: $DOCKER_USERNAME/vehicle-monitoring-ui:latest
+    repo: usamamali/vehicle-monitoring-ui:latest
 
 notifications:
   email: false
