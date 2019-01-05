@@ -19,6 +19,8 @@ script:
   #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID .
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker push $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID
   ##############################
   - cd ../vehicle-api
   #- mvn test -Deureka.client.enabled=false  -B
