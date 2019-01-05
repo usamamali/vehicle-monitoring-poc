@@ -1,0 +1,91 @@
+sudo: required
+language: java
+jdk:
+  - oraclejdk8
+install: true
+
+services:
+  - docker
+
+before_install:
+  - cp docker-compose.prod.yml docker-compose.yml
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - sudo apt-get install -y python3.4
+  - sudo apt-get install --upgrade -y python-pip
+  - sudo apt-get install jq
+  - sudo pip install --user virtualenv
+  # Create a virtual environment for AWS CLI
+  - virtualenv my_py3 --python=/usr/bin/python3.4
+  - source my_py3/bin/activate
+  - pip install --upgrade awscli
+  - pip install --upgrade awsebcli
+  # Set AWS information
+  - aws configure set aws_access_key_id $AWS_ACCESS_KEY
+  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+  - aws configure set default.region $DEPLOYMENT_REGION
+  - aws configure set metadata_service_timeout 1200
+  - aws configure set metadata_service_num_attempts 3
+  - aws configure list
+
+script:
+  - cd vehicle-monitoring-ui
+  - docker build -t $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui
+  ##############################
+  - cd ../customer-api
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-api
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID
+  ##############################
+    - cd ../customer-vehicle-management-api
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-status-management
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-discovery-service
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-monitor-api-gateway
+  #- mvn test -Deureka.client.enabled=false  -B
+  #- mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-monitor-api-gateway:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
+  - cd ..
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: $DEPLOYMENT_REGION
+  bucket_name: $DEPLOYMENT_BUCKET
+  app: $APP_NAME
+  env: $DEPLOYMENT_ENV
+  on:
+    repo: $DOCKER_USERNAME/vehicle-monitoring-ui
+
+notifications:
+  email: false
