@@ -28,10 +28,10 @@ RUN sudo npm install -g @angular/cli@1.7.1 --unsafe-perm=true --allow-root
 
 # add app
 COPY . /usr/src/app
-
-EXPOSE 4200
 # start app
 CMD ng build --prod --build-optimizer
+RUN ls /usr/src/app
+RUN ls /usr/src/app/dist
 
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
