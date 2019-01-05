@@ -21,6 +21,7 @@ COPY package.json /usr/src/app/package.json
 #RUN sudo chown -R $(whoami) /usr/src/node_modules/
 #RUN sudo chgrp -R $(whoami) /usr/src/node_modules/
 RUN sudo npm install
+RUN sudo npm install -g electron --unsafe-perm=true --allow-root
 RUN sudo chown -R $(whoami) /usr/local/lib/
 RUN sudo chgrp -R $(whoami) /usr/local/lib/
 RUN sudo npm install -g @angular/cli@1.7.1
@@ -28,14 +29,18 @@ RUN sudo npm install -g @angular/cli@1.7.1
 # add app
 COPY . /usr/src/app
 
+EXPOSE 4200
+# start app
+CMD ng build --prod --build-optimizer
+
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /usr/src/app/dist/vehicle-monitoring-ui /usr/share/nginx/html
-COPY --from=builder /usr/src/app/entrypoint.sh /usr/share/nginx/
-#EXPOSE 80
-#CMD ["nginx", "-g", "daemon off;"]
+#COPY --from=builder /usr/src/app/entrypoint.sh /usr/share/nginx/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 #RUN chmod +x /usr/share/nginx/entrypoint.sh
 #CMD ["/bin/sh", "/usr/share/nginx/entrypoint.sh"]
 
