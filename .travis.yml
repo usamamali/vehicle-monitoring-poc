@@ -30,8 +30,23 @@ before_install:
 script:
   - cd .
 
+<<<<<<< HEAD
 after_success:
   - sh ./scripts/upload_image_to_elastcbeanstalk.sh "latest" $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV_NAME $APP_NAME $DEPLOYMENT_REGION "" $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME $DOCKER_REPOSITORY $DOCKER_PASSWORD $DOCKER_EMAIL;
+=======
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "b08ebTzTB4X13q0k5etOLQDeiMla7nKVYISpNIXvtdl5OQ8D/ugGyCJwjTYFk9sMPQw6lm3ppcTYEQX63rjTr0M8wIEM1rGYhyA9CUMK8OSlCd7KBiHVbGLkQgFrB+2b/lPoA28YByrF/YB77aDdsp2yFcC2Fun+dO/+g0H5ILH0llwVYyQAId6NltWKB9LCH3YBhA6K6Uric0GcEzlKCabOaUoTrXVLf0vq1GrgNacuORMokfP/GqUUZXrz3S5p37rp/IpxWTdUQWV6WNvHDCBb5316NdDjyIiHnnoYGq7M9RHAO+mGdQJwao1zhA5dY5YB+02qn3fYpToWKbyrIyymS/FfN+o5nvkUfpZe185M2pNZok083sAKBeydY8nKLmvCTFxp2WxlZgYEe4iarqu1HZkf7ZJevyG2vAhmSuWuqCsp+JBDl0Uslfjk1DtAbPnKRLj+BVHJXGD1l5dsw8fSQnQFY2iBSsiEF5DZtqdkN9l20Qhf18iu/MysdvdFFj328ZoUFzHI4OHsYcHPzg+PGgocEQiU/tAjUPCE3XMz0Jl75HJzoOz6qTRFB1ueDHkPvS/zm4spOPf7mSR0bMI9KoKQKt5JoSJ1Sq/Q3tXzs1ZEwlZseT4ie8BjcZg3KfGc/7DH8YY+4f3bKumnP8lIFsubJUY5P7LMrN1MHAY="
+  secret_access_key:
+    secure: "dJwZHL4ZUmu6CCdaXIwSdDNktDJyV/XYyAywV4PvTxfKth5WU/mZu3xH45GknZv30AdjtHU3AdFKsoXndA6vSOF81fqe6gGRm8yAVGl/rXA3CFIcQRVRVhfjMG90Tva3dg8dBK/IS20qXEoEVGbL8Cz0fToEe/n40QE7dTf0pm1AStOpuaZWuSdyEUVC7Dkj/IDqX9eArkIcglAyA/BPVYa68DvqZJ2II3iqIgtXNJa8+iKzNldR2Tet75kHFfPu8NqN0jIeGq9GeyRk2+XfvhIcxKRZkdOzvU0hXCntLCkfrvDNm4+JcEoKGeSlaVjlTOPwpTBPOg/tq+rRkoQ50YxjHKb11beTzqU9mMMamg8ht7fg3y4nrbW5JTsKed3P6Yn6u4nTEWaUCKgDcxfmWp8h5KCW2HrupBCcV95F8/Vl8hxaA2PcOQUjQbGKnusQ+5w4uVe+NTo2nNgqv3KX9NEqebsSO/bGZ5MQHMOHlzQ4WHxbgGnPEwHlch+ja2zdO65UMLFugw9++huL5KOKnnOwJne0v69EXmqqBvRylk6znB1sApkS98NV66tuDwuDiGMKb/xBi8jwb483wGNk55/CO7iByrmrbriNfZVLFn6alEsSlXXobpOfyeY3r/DHP7SWdPP2sn7udxn4GW/HEk6666SMHt+3t5bH/VZT80c="
+  region: $DEPLOYMENT_REGION
+  bucket_name: $DEPLOYMENT_BUCKET
+  app: $APP_NAME
+  env: $DEPLOYMENT_ENV_NAME
+  on:
+    repo: usamamali/vehicle-monitoring-poc
+>>>>>>> fbdbe384028ad4dc0de03f93df62d5893eebbd4e
 
 notifications:
   email: false
