@@ -36,3 +36,45 @@ So, vehicle is either Connected or Disconnected.
 9. Use Microservices architecture.
    - Use any Microservices Chassis Framework.
 10. Use any free tier on any cloud platform like: - AWS, Azure or GCP
+
+## Optional Requirements
+
+1. Write an integration test.
+2. Write an automation test.
+3. Explain if it is possible to be in Serverless architecture and how?
+4. Continuous delivery to the solution to the cloud.
+
+## Data:
+
+Below you have all customers from the system; their addresses and the vehicles they own.
+
+|-----------------------------------|
+| Kalles Grustransporter AB |
+| Cementvägen 8, 111 11 Södertälje |
+|-----------------------------------|
+| VIN (VehicleId) Reg. nr. |
+|-----------------------------------|
+| YS2R4X20005399401 ABC123 |
+| VLUR4X20009093588 DEF456 |
+| VLUR4X20009048066 GHI789 |
+|-----------------------------------|
+
+|-----------------------------------|
+| Johans Bulk AB |
+| Balkvägen 12, 222 22 Stockholm |
+|-----------------------------------|
+| VIN (VehicleId) Reg. nr. |
+|-----------------------------------|
+| YS2R4X20005388011 JKL012 |
+| YS2R4X20005387949 MNO345 |
+------------------------------------|
+
+|-----------------------------------|
+| Haralds Värdetransporter AB |
+| Budgetvägen 1, 333 33 Uppsala |
+|-----------------------------------|
+| VIN (VehicleId) Reg. nr. |
+|-----------------------------------|
+| VLUR4X20009048066 PQR678 |
+| YS2R4X20005387055 STU901 |
+|-----------------------------------|
