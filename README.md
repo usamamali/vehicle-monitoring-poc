@@ -51,7 +51,6 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #1:
 
 **Kalles Grustransporter AB**
-
 **Cementvägen 8, 111 11 Södertälje**
 
 | VIN (VehicleId)   | Reg. nr. |
@@ -63,7 +62,6 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #2:
 
 **Johans Bulk AB**
-
 **Balkvägen 12, 222 22 Stockholm**
 
 | VIN (VehicleId)   | Reg. nr. |
@@ -74,7 +72,6 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #3:
 
 **Haralds Värdetransporter AB**
-
 **Budgetvägen 1, 333 33 Uppsala**
 
 | VIN (VehicleId)   | Reg. nr. |
