@@ -39,7 +39,7 @@ deploy:
   region: $DEPLOYMENT_REGION
   bucket_name: $DEPLOYMENT_BUCKET
   app: $APP_NAME
-  env: $DEPLOYMENT_ENV
+  env: $DEPLOYMENT_ENV_NAME
 
 notifications:
   email: false
