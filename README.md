@@ -168,3 +168,9 @@ To fit with microservices architecture. **Docker** technology is used for local 
   cd vehicle-monitoring-ui
   ng build
 ```
+
+#### Run Application
+
+```shell
+docker-compose up --build
+```
