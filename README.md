@@ -174,3 +174,7 @@ To fit with microservices architecture. **Docker** technology is used for local 
 ```shell
 docker-compose up --build
 ```
+
+#### App URL
+
+[http://localhost:8888/#dashboard](http://localhost:8888/#dashboard 'http://localhost:8888/#dashboard')
