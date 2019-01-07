@@ -1,7 +1,7 @@
 #! /bin/bash
 # Variables
 DOCKER_TAG=$1
-DOCKERRUN_FILE="./Dockerrun.aws.json"
+DOCKERRUN_FILE="Dockerrun.aws.json"
 DOCKERCFG=".dockercfg"
 DOCKER_CONFIG="/home/travis/.docker/config.json"
 EB_BUCKET=$2
