@@ -177,4 +177,4 @@ docker-compose up --build
 
 #### App URL
 
-[http://localhost:8888/#dashboard](http://localhost:8888/#dashboard 'http://localhost:8888/#dashboard')
+Vehicle Monitoring Dashboard: [http://localhost:8888/#dashboard](http://localhost:8888/#dashboard 'http://localhost:8888/#dashboard')
