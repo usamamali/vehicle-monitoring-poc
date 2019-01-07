@@ -104,3 +104,11 @@ Application is a set loosely coupled fine-graned services that communicate to ea
 - **Gateway API:** a lightweight service where all calls to other service should come through. Technologies are: SpringBoot, Zuul, h2-database and Swagger.
 - **Discovery Service:** a lightweight service where all up services should be registered. Technologies are: SpringBoot, Eureka Discovery Service, h2-database and Swagger.
 - **Vehicle Monitoring UI:** a web application for viewing vehicles' status. AngularJS and Bootstrap.
+
+## Deployment
+
+### Development Environment
+
+To fit with microservices architecture. **Docker** technology is used for local deployment.
+
+#### Steps
