@@ -112,3 +112,59 @@ Application is a set loosely coupled fine-graned services that communicate to ea
 To fit with microservices architecture. **Docker** technology is used for local deployment.
 
 #### Steps
+
+- **Customer API:**
+
+```shell
+  cd customer-api
+  mvn clean package
+```
+
+- **Vehicle API:**
+
+```shell
+  cd vehicle-api
+  mvn clean package
+```
+
+- **Customer Vehicle Managment API:**
+
+```shell
+  cd customer-vehicle-management-api
+  mvn clean package
+```
+
+- **Vehicle Status API:**
+
+```shell
+  cd vehicle-status-management
+  mvn clean package
+```
+
+- **Vehicle Pulse Emulator:**
+
+```shell
+  cd vehicle-pulse-emulator
+  mvn clean package
+```
+
+- **Gateway API:**
+
+```shell
+  cd vehicle-monitor-api-gateway
+  mvn clean package
+```
+
+- **Discovery Service:**
+
+```shell
+  cd vehicle-discovery-service
+  mvn clean package
+```
+
+- **Vehicle Monitoring UI:**
+
+```shell
+  cd vehicle-monitoring-ui
+  ng build
+```
