@@ -88,7 +88,7 @@ Below you have all customers from the system; their addresses and the vehicles t
 
 This business use case is very promising. It introduces an out-of-the box solution that can fit for any customer wants to track or monitor his vehicles. Based on that, it can be designed as a plateform where customers can register themselves and their vehicles. This plateform should be design in a way that can allow dynamic scalability and high availability. **Microservices Architecture** is one of the most suitable architecture that matches this business use case. It allows decomposing the application into different smaller services that improves modularity and scalability of services independently. It also allows to introduce new services to the plateform. One of the most advantages of microservices architecture that it fits for **Cloud** deployments.
 
-![Alt text](screen_shots/architecture_diagram.png?raw=true 'Architecture diagram)
+![Alt text](screen_shots/architecture_diagram.png?raw=true 'Architecture diagram')
 
 ## Services and Technologies
 
