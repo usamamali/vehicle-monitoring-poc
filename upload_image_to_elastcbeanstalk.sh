@@ -20,11 +20,6 @@ DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 echo "::::: Creating Dockerrun.aws.json file :::::"
 # Replace vars in the DOCKERRUN_FILE 
 cat Dockerrun.aws.json
-# | sed 's||'$EB_BUCKET'|g' \
-#  | sed 's||'$DOCKER_IMAGE'|g' \
-#  | sed 's||'$DOCKER_TAG'|g' \
-#  > $DOCKERRUN_FILE
-#sleep 30
 echo "::::: Coping :::::"
 aws s3 cp Dockerrun.aws.json s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
 echo "::::: Copied :::::"
