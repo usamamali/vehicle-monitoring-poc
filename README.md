@@ -96,11 +96,11 @@ Application is a set loosely coupled fine-graned services that communicate to ea
 
 ![Alt text](screen_shots/application_services?raw=true 'Application services')
 
-- **Customer API:** a lightweight service for Customer management. Technologies are: SpringBoot, h2-database && Swagger.
-- **Vehicle API:** a lightweight service for Vehicle management. Technologies are: SpringBoot, h2-database && Swagger.
-- **Customer Vehicle Managment API:** a lightweight service for Customer-Vehicle relationship management. Technologies are: SpringBoot, h2-database && Swagger.
-- **Vehicle Status API:** a lightweight service for Vehicle Status calculation. It has the business logic of vehicle status calculation. Technologies are: SpringBoot, h2-database && Swagger.
-- **Vehicle Pulse Emulator:** applciation that simulates vehicle's pings. Technologies are: SpringBoot, h2-database && Swagger.
-- **Gateway API:** a lightweight service where all calls to other service should come through. Technologies are: SpringBoot, Zuul, h2-database && Swagger.
-- **Discovery Service:** a lightweight service where all up services should be registered. Technologies are: SpringBoot, Eureka Discovery Service, h2-database && Swagger.
-- **Vehicle Monitoring UI:** a web application for viewing vehicles' status. AngularJS and Bootstrap
+- **Customer API:** a lightweight service for Customer management. Technologies are: SpringBoot, h2-database and Swagger.
+- **Vehicle API:** a lightweight service for Vehicle management. Technologies are: SpringBoot, h2-database and Swagger.
+- **Customer Vehicle Managment API:** a lightweight service for Customer-Vehicle relationship management. Technologies are: SpringBoot, h2-database and Swagger.
+- **Vehicle Status API:** a lightweight service for Vehicle Status calculation. It has the business logic of vehicle status calculation. Technologies are: SpringBoot, h2-database and Swagger.
+- **Vehicle Pulse Emulator:** applciation that simulates vehicle's pings. Technologies are: SpringBoot, h2-database and Swagger.
+- **Gateway API:** a lightweight service where all calls to other service should come through. Technologies are: SpringBoot, Zuul, h2-database and Swagger.
+- **Discovery Service:** a lightweight service where all up services should be registered. Technologies are: SpringBoot, Eureka Discovery Service, h2-database and Swagger.
+- **Vehicle Monitoring UI:** a web application for viewing vehicles' status. AngularJS and Bootstrap.
