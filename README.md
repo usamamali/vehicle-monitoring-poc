@@ -178,3 +178,14 @@ docker-compose up --build
 #### App URL
 
 Vehicle Monitoring Dashboard: [http://localhost:8888/#dashboard](http://localhost:8888/#dashboard 'http://localhost:8888/#dashboard')
+
+#### API Documention
+
+- **Customer API:** [http://localhost:9092/swagger-ui.html](http://localhost:9092/swagger-ui.html 'http://localhost:9092/swagger-ui.html')
+  ![Alt text](screen_shots/customer_api.png?raw=true 'customer api')
+
+- **Vehicle API:** [http://localhost:9091/swagger-ui.html](http://localhost:9091/swagger-ui.html 'http://localhost:9091/swagger-ui.html')
+  ![Alt text](screen_shots/vehicle_api.png?raw=true 'vehicle api')
+
+- **Customer Vehicle Management API:** [http://localhost:9093/swagger-ui.html](http://localhost:9093/swagger-ui.html 'http://localhost:9093/swagger-ui.html')
+  ![Alt text](screen_shots/customer_vehicle_mang_api.png?raw=true 'customer vehicle management api')
