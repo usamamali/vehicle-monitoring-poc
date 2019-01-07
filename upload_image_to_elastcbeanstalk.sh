@@ -25,6 +25,7 @@ cat Dockerrun.aws.json
 #  | sed 's||'$DOCKER_TAG'|g' \
 #  > $DOCKERRUN_FILE
 #sleep 30
+echo "::::: Coping :::::"
 aws s3 cp Dockerrun.aws.json s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
 echo "::::: Copied :::::"
 sleep 30
