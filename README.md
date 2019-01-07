@@ -179,6 +179,8 @@ docker-compose up --build
 
 Vehicle Monitoring Dashboard: [http://localhost:8888/#dashboard](http://localhost:8888/#dashboard 'http://localhost:8888/#dashboard')
 
+Discovery Service Dashboard: [http://localhost:8761/](http://localhost:8761/ 'http://localhost:8761/')
+
 #### API Documention
 
 - **Customer API:** [http://localhost:9092/swagger-ui.html](http://localhost:9092/swagger-ui.html 'http://localhost:9092/swagger-ui.html')
