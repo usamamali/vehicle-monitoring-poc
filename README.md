@@ -88,10 +88,19 @@ Below you have all customers from the system; their addresses and the vehicles t
 
 This business use case is very promising. It introduces an out-of-the box solution that can fit for any customer wants to track or monitor his vehicles. Based on that, it can be designed as a plateform where customers can register themselves and their vehicles. This plateform should be design in a way that can allow dynamic scalability and high availability. **Microservices Architecture** is one of the most suitable architecture that matches this business use case. It allows decomposing the application into different smaller services that improves modularity and scalability of services independently. It also allows to introduce new services to the plateform. One of the most advantages of microservices architecture that it fits for **Cloud** deployments.
 
-![Alt text](screen_shots/architecture_diagrampng?raw=true 'Home page')
+![Alt text](screen_shots/architecture_diagram.png?raw=true 'Architecture diagram)
 
 ## Services and Technologies
 
-Application is a set loosely coupled fine-graned services that communicates to each other over HTTP protocol.
+Application is a set loosely coupled fine-graned services that communicate to each other over HTTP protocol.
 
-- **Customer API:** a lightweight service for customer management. Technologies are: SpringBoot, h2-database && Swagger.
+![Alt text](screen_shots/application_services?raw=true 'Application services')
+
+- **Customer API:** a lightweight service for Customer management. Technologies are: SpringBoot, h2-database && Swagger.
+- **Vehicle API:** a lightweight service for Vehicle management. Technologies are: SpringBoot, h2-database && Swagger.
+- **Customer Vehicle Managment API:** a lightweight service for Customer-Vehicle relationship management. Technologies are: SpringBoot, h2-database && Swagger.
+- **Vehicle Status API:** a lightweight service for Vehicle Status calculation. It has the business logic of vehicle status calculation. Technologies are: SpringBoot, h2-database && Swagger.
+- **Vehicle Pulse Emulator:** applciation that simulates vehicle's pings. Technologies are: SpringBoot, h2-database && Swagger.
+- **Gateway API:** a lightweight service where all calls to other service should come through. Technologies are: SpringBoot, Zuul, h2-database && Swagger.
+- **Discovery Service:** a lightweight service where all up services should be registered. Technologies are: SpringBoot, Eureka Discovery Service, h2-database && Swagger.
+- **Vehicle Monitoring UI:** a web application for viewing vehicles' status. AngularJS and Bootstrap
