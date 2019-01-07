@@ -41,7 +41,7 @@ deploy:
   app: $APP_NAME
   env: $DEPLOYMENT_ENV_NAME
   on:
-    repo: usamamali/vehicle-monitoring-ui
+    repo: usamamali/vehicle-monitoring-poc
 
 notifications:
   email: false
