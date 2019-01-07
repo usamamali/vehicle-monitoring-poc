@@ -1,7 +1,7 @@
 #! /bin/bash
 # Variables
 DOCKER_TAG=$1
-#DOCKERRUN_FILE="Dockerrun.aws.json"
+DOCKERRUN_FILE="Dockerrun.aws.json"
 DOCKERCFG=".dockercfg"
 DOCKER_CONFIG="/home/travis/.docker/config.json"
 EB_BUCKET=$2
@@ -19,9 +19,9 @@ DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 
 echo "::::: Creating Dockerrun.aws.json file :::::"
 # Replace vars in the DOCKERRUN_FILE 
-cat Dockerrun.aws.json
+cat $DOCKERRUN_FILE
 echo "::::: Coping :::::"
-aws s3 cp Dockerrun.aws.json s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
+aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
 echo "::::: Copied :::::"
 sleep 30
 echo "::::: Creating new Elastic Beanstalk version :::::"
