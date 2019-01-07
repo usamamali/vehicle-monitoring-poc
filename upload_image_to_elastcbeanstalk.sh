@@ -19,12 +19,12 @@ DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 
 echo "::::: Creating Dockerrun.aws.json file :::::"
 # Replace vars in the DOCKERRUN_FILE 
-cat "$DOCKERRUN_FILE" \
-  | sed 's||'$EB_BUCKET'|g' \
-  | sed 's||'$DOCKER_IMAGE'|g' \
-  | sed 's||'$DOCKER_TAG'|g' \
-  > $DOCKERRUN_FILE
-sleep 30
+#cat "$DOCKERRUN_FILE" \
+# | sed 's||'$EB_BUCKET'|g' \
+#  | sed 's||'$DOCKER_IMAGE'|g' \
+#  | sed 's||'$DOCKER_TAG'|g' \
+#  > $DOCKERRUN_FILE
+#sleep 30
 aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
 sleep 30
 echo "::::: Creating new Elastic Beanstalk version :::::"
