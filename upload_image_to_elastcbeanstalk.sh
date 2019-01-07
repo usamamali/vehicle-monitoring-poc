@@ -19,7 +19,7 @@ DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 
 echo "::::: Creating Dockerrun.aws.json file :::::"
 # Replace vars in the DOCKERRUN_FILE 
-#cat "$DOCKERRUN_FILE" \
+cat $DOCKERRUN_FILE
 # | sed 's||'$EB_BUCKET'|g' \
 #  | sed 's||'$DOCKER_IMAGE'|g' \
 #  | sed 's||'$DOCKER_TAG'|g' \
