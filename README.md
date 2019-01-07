@@ -194,7 +194,7 @@ Discovery Service Dashboard: [http://localhost:8761/](http://localhost:8761/ 'ht
 
 ### Production Environment
 
-- **AWS ElasticBeanstalk** for services container.
+- **AWS Elastic Beanstalk** for services containers.
 - **AWS S3** for deployment metadate.
 
 #### CI/CD
@@ -202,4 +202,8 @@ Discovery Service Dashboard: [http://localhost:8761/](http://localhost:8761/ 'ht
 - **Travis CI:**
   - Build service
   - Build Docker images
-  - Deploy on AWS **Beanstalk**
+  - Deploy on **AWS Elastic Beanstalk**
+
+#### Production URL
+
+Vehicle Monitoring Dashboard: [http://lVehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com](http://VehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com 'http://VehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com')
