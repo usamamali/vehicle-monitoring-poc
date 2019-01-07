@@ -207,3 +207,10 @@ Discovery Service Dashboard: [http://localhost:8761/](http://localhost:8761/ 'ht
 ## Production URL
 
 Vehicle Monitoring Dashboard: [http://lVehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com](http://VehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com 'http://VehicleMonitoring-env.jpgzsbgmuc.us-west-1.elasticbeanstalk.com')
+
+## Code Analysis
+
+**Travis CI** is integrating with **SonarCloud** to publish code analysis statistics
+
+- **Vehicle Status API**
+  SonarCloud public url : https://sonarcloud.io/dashboard?id=com.alten.vehicle.monitoring%3Avehicle-status-management
