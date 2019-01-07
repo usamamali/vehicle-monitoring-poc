@@ -1,7 +1,8 @@
 #! /bin/bash
 # Variables
 DOCKER_TAG=$1
-DOCKERRUN_FILE="Dockerrun.aws.json"
+#DOCKERRUN_FILE="Dockerrun.aws.json"
+DOCKERCFG=".dockercfg"
 DOCKER_CONFIG="/home/travis/.docker/config.json"
 EB_BUCKET=$2
 EB_ENV=$3
@@ -16,16 +17,12 @@ DOCKER_PASSWORD=${10}
 DOCKER_EMAIL=${11}
 DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 
-sleep 30
 echo "::::: Creating Dockerrun.aws.json file :::::"
 # Replace vars in the DOCKERRUN_FILE 
-cat "$DOCKERRUN_FILE" \
-  | sed 's||'$EB_BUCKET'|g' \
-  | sed 's||'$DOCKER_IMAGE'|g' \
-  | sed 's||'$DOCKER_TAG'|g' \
-  > $DOCKERRUN_FILE
-sleep 30
-aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
+cat Dockerrun.aws.json
+echo "::::: Coping :::::"
+aws s3 cp Dockerrun.aws.json s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
+echo "::::: Copied :::::"
 sleep 30
 echo "::::: Creating new Elastic Beanstalk version :::::"
 # Run aws command to create a new EB application with label
@@ -44,4 +41,5 @@ aws elasticbeanstalk update-environment \
   --version-label $DOCKER_TAG
 echo "::::: Removing file :::::"
 sleep 30  
-rm $DOCKERRUN_FILE
+rm $DOCKERCFG
+#rm $DOCKERRUN_FILE
