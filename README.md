@@ -94,8 +94,6 @@ This business use case is very promising. It introduces an out-of-the box soluti
 
 Application is a set loosely coupled fine-graned services that communicate to each other over HTTP protocol.
 
-![Alt text](screen_shots/application_services?raw=true 'Application services')
-
 - **Customer API:** a lightweight service for Customer management. Technologies are: SpringBoot, h2-database and Swagger.
 - **Vehicle API:** a lightweight service for Vehicle management. Technologies are: SpringBoot, h2-database and Swagger.
 - **Customer Vehicle Managment API:** a lightweight service for Customer-Vehicle relationship management. Technologies are: SpringBoot, h2-database and Swagger.
