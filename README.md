@@ -51,6 +51,7 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #1:
 
 **Kalles Grustransporter AB**
+
 **Cementvägen 8, 111 11 Södertälje**
 
 | VIN (VehicleId)   | Reg. nr. |
@@ -62,6 +63,7 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #2:
 
 **Johans Bulk AB**
+
 **Balkvägen 12, 222 22 Stockholm**
 
 | VIN (VehicleId)   | Reg. nr. |
@@ -72,9 +74,24 @@ Below you have all customers from the system; their addresses and the vehicles t
 ### Customer #3:
 
 **Haralds Värdetransporter AB**
+
 **Budgetvägen 1, 333 33 Uppsala**
 
 | VIN (VehicleId)   | Reg. nr. |
 | ----------------- | -------- |
 | VLUR4X20009048066 | PQR678   |
 | YS2R4X20005387055 | STU901   |
+
+# Solution
+
+## Architecture
+
+This business use case is very promising. It introduces an out-of-the box solution that can fit for any customer wants to track or monitor his vehicles. Based on that, it can be designed as a plateform where customers can register themselves and their vehicles. This plateform should be design in a way that can allow dynamic scalability and high availability. **Microservices Architecture** is one of the most suitable architecture that matches this business use case. It allows decomposing the application into different smaller services that improves modularity and scalability of services independently. It also allows to introduce new services to the plateform. One of the most advantages of microservices architecture that it fits for **Cloud** deployments.
+
+![Alt text](screen_shots/architecture_diagrampng?raw=true 'Home page')
+
+## Services and Technologies
+
+Application is a set loosely coupled fine-graned services that communicates to each other over HTTP protocol.
+
+- **Customer API:** a lightweight service for customer management. Technologies are: SpringBoot, h2-database && Swagger.
