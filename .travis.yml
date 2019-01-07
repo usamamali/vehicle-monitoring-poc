@@ -28,8 +28,53 @@ before_install:
   - aws configure list
 
 script:
-  - cd .
+  - cd vehicle-monitoring-ui
+  - docker build -t $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui
   ##############################
+  - cd ../customer-api
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-api
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../customer-vehicle-management-api
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-status-management
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-discovery-service
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID
+  ##############################
+  - cd ../vehicle-monitor-api-gateway
+  - mvn test -Deureka.client.enabled=false  -B
+  - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
+  - mvn clean package -DskipTests
+  - docker build -t $DOCKER_USERNAME/vehicle-monitor-api-gateway:$TRAVIS_BUILD_ID .
+  - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
+  - cd ..
 
 after_success:
   - sh ./scripts/upload_image_to_elastcbeanstalk.sh "latest" $DEPLOYMENT_BUCKET $DEPLOYMENT_ENV $APP_NAME $DEPLOYMENT_REGION "" $DEPLOYMENT_ENV_NAME $DOCKER_USERNAME $DOCKER_REPOSITORY $DOCKER_PASSWORD $DOCKER_EMAIL;
