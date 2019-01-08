@@ -31,7 +31,8 @@ script:
   - cd vehicle-monitoring-ui
   - docker build -t $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui
+  - docker tag $DOCKER_USERNAME/vehicle-monitoring-ui $DOCKER_USERNAME/vehicle-monitoring-ui:latest
+  - docker push $DOCKER_USERNAME/vehicle-monitoring-ui:latest
   ##############################
   - cd ../customer-api
   - mvn test -Deureka.client.enabled=false  -B
@@ -39,7 +40,8 @@ script:
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/customer-api:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/customer-api
+  - docker tag $DOCKER_USERNAME/customer-api$DOCKER_USERNAME/customer-api:latest
+  - docker push $DOCKER_USERNAME/customer-api:latest
   ##############################
   - cd ../vehicle-api
   - mvn test -Deureka.client.enabled=false  -B
@@ -47,7 +49,8 @@ script:
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-api:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-api
+  - docker tag $DOCKER_USERNAME/vehicle-api $DOCKER_USERNAME/vehicle-api:latest
+  - docker push $DOCKER_USERNAME/vehicle-api:latest
   ##############################
   - cd ../customer-vehicle-management-api
   - mvn test -Deureka.client.enabled=false  -B
@@ -55,7 +58,8 @@ script:
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/customer-vehicle-management-api:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/customer-vehicle-management-api
+  - docker tag $DOCKER_USERNAME/customer-vehicle-management-api $DOCKER_USERNAME/customer-vehicle-management-api:latest
+  - docker push $DOCKER_USERNAME/customer-vehicle-management-api:latest
   ##############################
   - cd ../vehicle-status-management
   - mvn test -Deureka.client.enabled=false  -B
@@ -63,14 +67,16 @@ script:
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-status-management
+  - docker tag $DOCKER_USERNAME/vehicle-status-management $DOCKER_USERNAME/vehicle-status-management:latest
+  - docker push $DOCKER_USERNAME/vehicle-status-management:latest
   ##############################
   - cd ../vehicle-discovery-service
   - mvn test
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-discovery-service
+  - docker tag $DOCKER_USERNAME/vehicle-discovery-service $DOCKER_USERNAME/vehicle-discovery-service:latest
+  - docker push $DOCKER_USERNAME/vehicle-discovery-service:latest
   ##############################
   - cd ../vehicle-pulse-emulator
   - mvn test
@@ -78,14 +84,16 @@ script:
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-pulse-emulator:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-pulse-emulator:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-pulse-emulator
+  - docker tag $DOCKER_USERNAME/vehicle-pulse-emulator $DOCKER_USERNAME/vehicle-pulse-emulator:latest
+  - docker push $DOCKER_USERNAME/vehicle-pulse-emulator:latest
   ##############################
   - cd ../vehicle-monitor-api-gateway
   - mvn test -Deureka.client.enabled=false  -B
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-monitor-api-gateway:$TRAVIS_BUILD_ID .
   - docker push $DOCKER_USERNAME/vehicle-monitor-api-gateway:$TRAVIS_BUILD_ID
-  - docker push $DOCKER_USERNAME/vehicle-monitor-api-gateway
+  - docker tag $DOCKER_USERNAME/vehicle-monitor-api-gateway $DOCKER_USERNAME/vehicle-monitor-api-gateway:latest
+  - docker push $DOCKER_USERNAME/vehicle-monitor-api-gateway:latest
   - cd ..
 
 after_success:
