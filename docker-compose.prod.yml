@@ -3,12 +3,14 @@ services:
   discovery-service:
     build: ./vehicle-discovery-service
     image: usamamali/vehicle-discovery-service
+    container_name: vehicle-discovery-service
     ports:
       - '8761:8761'
 
   vehicle-api:
     build: ./vehicle-api
     image: usamamali/vehicle-api
+    container_name: vehicle-api
     ports:
       - '9091:9091'
     working_dir: /opt/app
@@ -18,6 +20,7 @@ services:
   customer-api:
     build: ./customer-api
     image: usamamali/customer-api
+    container_name: customer-api
     ports:
       - '9092:9092'
     working_dir: /opt/app
@@ -27,6 +30,7 @@ services:
   customer-vehicle-management-api:
     build: ./customer-vehicle-management-api
     image: usamamali/customer-vehicle-management-api
+    container_name: customer-vehicle-management-api
     ports:
       - '9093:9093'
     working_dir: /opt/app

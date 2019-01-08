@@ -62,7 +62,7 @@ script:
   - docker push $DOCKER_USERNAME/vehicle-status-management:$TRAVIS_BUILD_ID
   ##############################
   - cd ../vehicle-discovery-service
-  - mvn test -Deureka.client.enabled=false  -B
+  - mvn test
   - mvn sonar:sonar -Dsonar.organization=usamamali-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1b72ff80bd1c06456740dd5f56656a84a540a10b
   - mvn clean package -DskipTests
   - docker build -t $DOCKER_USERNAME/vehicle-discovery-service:$TRAVIS_BUILD_ID .
