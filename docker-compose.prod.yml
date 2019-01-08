@@ -74,8 +74,8 @@ services:
 
   vehicle-monitor-ui:
     build: ./vehicle-monitoring-ui
-    image: usamamali/vehicle-monitor-ui
-    container_name: vehicle-monitor-ui
+    image: usamamali/vehicle-monitoring-ui
+    container_name: vehicle-monitoring-ui
     ports:
       - '8888:80'
       - '4200:4200'
