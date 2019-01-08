@@ -17,9 +17,6 @@ DOCKER_PASSWORD=${10}
 DOCKER_EMAIL=${11}
 DOCKER_IMAGE="$DOCKER_USERNAME/$DOCKER_REPOSITORY"
 
-echo "::::: Creating Dockerrun.aws.json file :::::"
-# Replace vars in the DOCKERRUN_FILE 
-cat $DOCKERRUN_FILE
 echo "::::: Coping :::::"
 aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$PREFIX/$DOCKERRUN_FILE
 echo "::::: Copied :::::"
