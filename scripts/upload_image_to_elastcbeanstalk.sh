@@ -36,7 +36,7 @@ aws elasticbeanstalk update-environment \
   --environment-name $DEPLOYMENT_ENV_NAME \
   --application-name $APP_NAME \
   --version-label $DOCKER_TAG
-echo "::::: Removing file :::::"
-sleep 30  
-rm $DOCKERCFG
+#echo "::::: Removing file :::::"
+#sleep 30  
+#rm $DOCKERCFG
 #rm $DOCKERRUN_FILE
