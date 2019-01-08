@@ -23,7 +23,7 @@
             "name": "discovery-service",
             "image": "usamamali/vehicle-discovery-service",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 8761,
                 "containerPort": 8761
@@ -37,7 +37,7 @@
             "name": "vehicle-api",
             "image": "usamamali/vehicle-api",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 9091,
                 "containerPort": 9091
@@ -54,7 +54,7 @@
             "name": "customer-api",
             "image": "usamamali/customer-api",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 9092,
                 "containerPort": 9092
@@ -71,7 +71,7 @@
             "name": "customer-vehicle-management-api",
             "image": "usamamali/customer-vehicle-management-api",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 9093,
                 "containerPort": 9093
@@ -88,7 +88,7 @@
             "name": "vehicle-pulse-emulator",
             "image": "usamamali/vehicle-pulse-emulator",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 8060,
                 "containerPort": 8060
@@ -103,7 +103,7 @@
             "name": "vehicle-status-management",
             "image": "usamamali/vehicle-status-management",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 8050,
                 "containerPort": 8050
@@ -118,7 +118,7 @@
             "name": "api-gateway",
             "image": "usamamali/vehicle-monitor-api-gateway",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 8080,
                 "containerPort": 8080
@@ -133,7 +133,7 @@
             "name": "vehicle-monitoring-ui",
             "image": "usamamali/vehicle-monitoring-ui",
             "essential": true,
-            "memory": 512,
+            "memory": 128,
             "portMappings": [{
                 "hostPort": 80,
                 "containerPort": 80
